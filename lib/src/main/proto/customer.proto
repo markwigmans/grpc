@@ -1,0 +1,28 @@
+syntax = "proto3";
+package com.capgemini.perf.lib;
+
+option java_multiple_files = true;
+option java_package = "com.capgemini.perf.lib.proto";
+
+
+message Empty {}
+
+message CustomerRequest {
+  int64 id = 1;
+}
+
+// The response message containing the customer
+message CustomerResponse {
+  int64 id = 1;
+  string firstName = 2;
+  string lastName = 3;
+}
+
+message CustomersResponse {
+  repeated CustomerResponse customers = 1;
+}
+
+service CustomerService {
+  rpc all (Empty) returns (CustomersResponse);
+  rpc find (CustomerRequest) returns (CustomerResponse);
+}

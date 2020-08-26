@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!--
+    <springProperty scope="context" name="application_name" source="spring.application.name"/>
+
+    <appender name="stash" class="net.logstash.logback.appender.LoggingEventAsyncDisruptorAppender">
+        <appender class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+            <param name="Encoding" value="UTF-8"/>
+            <remoteHost>${logstash.host:-localhost}</remoteHost>
+            <port>${logstash.port:-5044}</port>
+            <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
+        </appender>
+    </appender>
+    -->
+
+
+    <appender name="console" class="net.logstash.logback.appender.LoggingEventAsyncDisruptorAppender">
+        <appender class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+            </encoder>
+        </appender>
+    </appender>
+
+    <logger name="com.capgemini.perf" level="DEBUG"/>
+    <root level="INFO">
+        <appender-ref ref="console"/>
+    </root>
+
+</configuration>
