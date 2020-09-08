@@ -1,36 +1,35 @@
 package com.capgemini.perf.grpc.client.service;
 
-import com.capgemini.perf.grpc.client.api.CustomerResponseMapper;
+import com.capgemini.perf.grpc.client.api.CustomerMapper;
 import com.capgemini.perf.lib.data.CustomerDTO;
 import com.capgemini.perf.lib.proto.*;
 import com.capgemini.perf.lib.proto.CustomerServiceGrpc.CustomerServiceBlockingStub;
-import com.capgemini.perf.lib.util.EurekaUtil;
-import com.netflix.appinfo.InstanceInfo;
-import com.netflix.discovery.EurekaClient;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-@EnableEurekaClient
 @Component
-public class CustomerServiceConsumer implements CustomerService {
-
-    @Autowired
-    private EurekaClient client;
+@RequiredArgsConstructor
+public class CustomerServiceConsumer implements CustomerService, ApplicationListener<ApplicationReadyEvent> {
 
     private CustomerServiceBlockingStub blockingStub;
+    private final CustomerMapper mapper;
 
-    @PostConstruct
-    void init() {
-        // TODO remove from postconstruct
-        final InstanceInfo instanceInfo = EurekaUtil.waitForRegistrationWithEureka(client, "grpc-server");
-        final ManagedChannel channel = ManagedChannelBuilder.forAddress(instanceInfo.getIPAddr(), instanceInfo.getPort())
+    @Value("${grpc.server.host:localhost}")
+    private String host;
+    @Value("${grpc.server.port:6565}")
+    private int port;
+
+    @Override
+    public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
+        final ManagedChannel channel = ManagedChannelBuilder.forAddress(host, port)
                 .usePlaintext()
                 .build();
         blockingStub = CustomerServiceGrpc.newBlockingStub(channel);
@@ -39,13 +38,13 @@ public class CustomerServiceConsumer implements CustomerService {
     @Override
     public Iterable<CustomerDTO> all() {
         final CustomersResponse response = blockingStub.all(Empty.newBuilder().build());
-        return response.getCustomersList().stream().map(CustomerResponseMapper.MAPPER::toDTO)
+        return response.getCustomersList().stream().map(mapper::toDTO)
                 .collect(Collectors.toList());
     }
 
     @Override
-    public Optional<CustomerDTO> find(Long id) {
+    public Optional<CustomerDTO> find(int id) {
         final CustomerResponse response = blockingStub.find(CustomerRequest.newBuilder().setId(id).build());
-        return Optional.ofNullable(CustomerResponseMapper.MAPPER.toDTO(response));
+        return Optional.ofNullable(mapper.toDTO(response));
     }
 }

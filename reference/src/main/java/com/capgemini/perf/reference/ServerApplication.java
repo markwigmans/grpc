@@ -1,14 +1,10 @@
 package com.capgemini.perf.reference;
 
-import io.swagger.v3.oas.annotations.OpenAPIDefinition;
-import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration;
 
-@EnableEurekaClient
-@SpringBootApplication
-@OpenAPIDefinition(info = @Info(title = "Reference", version = "v1", description = "REST interface for reference case"))
+@SpringBootApplication(proxyBeanMethods = false)
 public class ServerApplication {
 
     public static void main(String[] args) {

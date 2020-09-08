@@ -1,0 +1,31 @@
+version: "2"
+
+services:
+  json-client:
+    image: json-client-sb
+    ports:
+      - "8080:8080"
+    environment:
+      - json.server.host=json-server
+
+  json-server:
+    image: json-server-sb
+    ports:
+      - "8090:8090"
+
+  grpc-client:
+    image: grpc-client-sb
+    ports:
+      - "8180:8180"
+    environment:
+      - grpc.server.host=grpc-server
+
+  grpc-server:
+    image: grpc-server-sb
+    ports:
+      - "6565:6565"
+
+  reference:
+    image: reference-sb
+    ports:
+      - "8280:8280"

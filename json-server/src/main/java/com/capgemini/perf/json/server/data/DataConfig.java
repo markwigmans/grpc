@@ -1,25 +1,22 @@
 package com.capgemini.perf.json.server.data;
 
-import org.springframework.context.annotation.Configuration;
+import com.capgemini.perf.json.server.api.CustomerMapper;
+import com.capgemini.perf.lib.util.DataSetGenerator;
+import lombok.RequiredArgsConstructor;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.ApplicationListener;
+import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
-
-@Configuration
-public class DataConfig {
+@Component
+@RequiredArgsConstructor
+public class DataConfig implements ApplicationListener<ApplicationReadyEvent> {
 
     private final CustomerRepository repository;
+    private final CustomerMapper mapper;
 
-    DataConfig(CustomerRepository repository) {
-        this.repository = repository;
-    }
-
-    @PostConstruct
-    private void init() {
-        // save a few customers
-        repository.save(new Customer(1L, "Json", "Bauer"));
-        repository.save(new Customer(2L, "Json", "O'Brian"));
-        repository.save(new Customer(3L, "Json", "Johnson"));
-        repository.save(new Customer(4L, "Json", "Palmer"));
-        repository.save(new Customer(5L, "Json", "Dessler"));
+    @Override
+    public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
+        DataSetGenerator.dataSet("Json").stream()
+                .map(mapper::fromDTO).forEach(repository::save);
     }
 }

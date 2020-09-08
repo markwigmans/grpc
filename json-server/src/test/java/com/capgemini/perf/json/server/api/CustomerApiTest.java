@@ -1,6 +1,7 @@
 package com.capgemini.perf.json.server.api;
 
 import com.capgemini.perf.lib.data.CustomerDTO;
+import com.capgemini.perf.lib.util.DataSetGenerator;
 import com.jayway.jsonpath.JsonPath;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -34,14 +35,14 @@ class CustomerApiTest {
     void all() {
         String response = restTemplate.getForEntity(baseUrl + "all", String.class).getBody();
         final List<CustomerDTO> customers = JsonPath.parse(response).read("$");
-        assertThat(customers.size(), is(5));
+        assertThat(customers.size(), is(DataSetGenerator.DEFAULT_RECORDS));
     }
 
     @Test
     void id() {
-        final long id = 2;
+        final int id = 2;
         String response = restTemplate.getForEntity(baseUrl + id, String.class).getBody();
         final CustomerDTO customer = JsonPath.parse(response).read("$", CustomerDTO.class);
-        assertThat(customer.getId(), is(id));
+        assertThat(customer.getUserId(), is(id));
     }
 }

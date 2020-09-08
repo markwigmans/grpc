@@ -21,7 +21,7 @@ public class CustomerServiceDB implements CustomerService {
     }
 
     @Override
-    public Optional<Customer> find(Long id) {
-        return repository.findById(id);
+    public Optional<Customer> find(int id) {
+        return repository.findByUserId(id);
     }
 }

@@ -7,5 +7,5 @@ import java.util.Optional;
 public interface CustomerService {
     Iterable<CustomerDTO> all();
 
-    Optional<CustomerDTO> find(Long id);
+    Optional<CustomerDTO> find(int id);
 }

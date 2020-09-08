@@ -1,14 +1,10 @@
 package com.capgemini.perf.json.server;
 
-import io.swagger.v3.oas.annotations.OpenAPIDefinition;
-import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration;
 
-@EnableEurekaClient
-@SpringBootApplication
-@OpenAPIDefinition(info = @Info(title = "JSON server", version = "v1", description = "REST interface for JSON Client part of JSON all solution"))
+@SpringBootApplication(proxyBeanMethods = false, exclude = SpringDataWebAutoConfiguration.class)
 public class ServerApplication {
 
     public static void main(String[] args) {
