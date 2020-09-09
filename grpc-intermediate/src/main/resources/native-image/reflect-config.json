@@ -1,0 +1,12 @@
+[
+  {
+    "name": "com.capgemini.perf.grpc.intermediate.api.CustomerMapperImpl",
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "name": "com.capgemini.perf.lib.data.CustomerDTO",
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true
+  }
+]

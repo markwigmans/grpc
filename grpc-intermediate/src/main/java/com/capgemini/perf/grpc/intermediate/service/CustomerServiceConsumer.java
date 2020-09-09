@@ -1,6 +1,6 @@
-package com.capgemini.perf.grpc.client.service;
+package com.capgemini.perf.grpc.intermediate.service;
 
-import com.capgemini.perf.grpc.client.api.CustomerMapper;
+import com.capgemini.perf.grpc.intermediate.api.CustomerMapper;
 import com.capgemini.perf.lib.data.CustomerDTO;
 import com.capgemini.perf.lib.proto.*;
 import com.capgemini.perf.lib.proto.CustomerServiceGrpc.CustomerServiceBlockingStub;
@@ -36,7 +36,8 @@ public class CustomerServiceConsumer implements CustomerService, ApplicationList
     @Override
     public Iterable<CustomerDTO> all() {
         final CustomersResponse response = blockingStub.all(Empty.newBuilder().build());
-        return response.getCustomersList().stream().map(mapper::toDTO).collect(Collectors.toList());
+        return response.getCustomersList().stream().map(mapper::toDTO)
+                .collect(Collectors.toList());
     }
 
     @Override

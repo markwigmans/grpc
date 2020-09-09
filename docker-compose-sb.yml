@@ -18,7 +18,16 @@ services:
     ports:
       - "8180:8180"
     environment:
+      - grpc.server.host=grpc-intermediate
+      - grpc.server.port=6564
+
+  grpc-intermediate:
+    image: grpc-intermediate-sb
+    ports:
+      - "6564:6564"
+    environment:
       - grpc.server.host=grpc-server
+      - grpc.port=6564
 
   grpc-server:
     image: grpc-server-sb

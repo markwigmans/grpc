@@ -50,7 +50,7 @@
             <dependency>
                 <groupId>io.github.lognet</groupId>
                 <artifactId>grpc-spring-boot-starter</artifactId>
-                <version>3.5.6</version>
+                <version>3.5.7</version>
             </dependency>
 
             <dependency>
@@ -98,6 +98,7 @@
         <module>json-server</module>
         <module>json-client</module>
         <module>grpc-server</module>
+        <module>grpc-intermediate</module>
         <module>grpc-client</module>
         <module>reference</module>
     </modules>
@@ -192,7 +193,7 @@
         </profile>
 
         <profile>
-            <id>graal</id>
+            <id>native</id>
             <build>
                 <plugins>
                     <plugin>
