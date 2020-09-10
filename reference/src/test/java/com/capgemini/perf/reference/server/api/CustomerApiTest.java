@@ -1,8 +1,8 @@
 package com.capgemini.perf.reference.server.api;
 
+import com.capgemini.perf.reference.data.Customer;
 import com.capgemini.perf.shared.data.CustomerDTO;
 import com.capgemini.perf.shared.util.DataSetGenerator;
-import com.capgemini.perf.reference.data.Customer;
 import com.jayway.jsonpath.JsonPath;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,7 +16,6 @@ import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class CustomerApiTest {
@@ -57,8 +56,8 @@ class CustomerApiTest {
         // clear cache
         cacheManager.getCache(cacheName).clear();
 
-        String response = restTemplate.getForEntity(baseUrl + id, String.class).getBody();
+        restTemplate.getForEntity(baseUrl + id, String.class).getBody();
         final Customer customer = (Customer) cacheManager.getCache(cacheName).get(id).get();
-        assertThat(customer.getUserId(), is(id));
+        assertThat("Check if customer is added to the cache", customer.getUserId(), is(id));
     }
 }

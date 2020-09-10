@@ -1,8 +1,8 @@
 package com.capgemini.perf.reference.api;
 
-import com.capgemini.perf.shared.data.CustomerDTO;
 import com.capgemini.perf.reference.data.Customer;
 import com.capgemini.perf.reference.service.CustomerService;
+import com.capgemini.perf.shared.data.CustomerDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;

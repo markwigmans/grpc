@@ -7,10 +7,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.PostConstruct;
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
@@ -32,11 +31,7 @@ public class CustomerServiceRest implements CustomerService {
     @Override
     public Iterable<CustomerDTO> all() {
         final CustomerDTO[] result = restTemplate.getForObject(url + "/customer/all", CustomerDTO[].class);
-        if (result != null) {
-            return Arrays.stream(result).collect(Collectors.toList());
-        } else {
-            return Collections.emptyList();
-        }
+        return Optional.ofNullable(result).map(Arrays::asList).orElseGet(ArrayList::new);
     }
 
     @Override

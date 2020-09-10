@@ -1,7 +1,7 @@
 package com.capgemini.perf.reference.data;
 
-import com.capgemini.perf.shared.util.DataSetGenerator;
 import com.capgemini.perf.reference.api.CustomerMapper;
+import com.capgemini.perf.shared.util.DataSetGenerator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
