@@ -1,15 +1,16 @@
 package com.capgemini.perf.grpc.client.service;
 
 import com.capgemini.perf.grpc.client.api.CustomerMapper;
-import com.capgemini.perf.lib.data.CustomerDTO;
-import com.capgemini.perf.lib.proto.*;
-import com.capgemini.perf.lib.proto.CustomerServiceGrpc.CustomerServiceBlockingStub;
+import com.capgemini.perf.shared.data.CustomerDTO;
+import com.capgemini.perf.shared.proto.*;
+import com.capgemini.perf.shared.proto.CustomerServiceGrpc.CustomerServiceBlockingStub;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
@@ -28,7 +29,7 @@ public class CustomerServiceConsumer implements CustomerService, ApplicationList
     private int port;
 
     @Override
-    public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
+    public void onApplicationEvent(@NonNull ApplicationReadyEvent applicationReadyEvent) {
         final ManagedChannel channel = ManagedChannelBuilder.forAddress(host, port).usePlaintext().build();
         blockingStub = CustomerServiceGrpc.newBlockingStub(channel);
     }

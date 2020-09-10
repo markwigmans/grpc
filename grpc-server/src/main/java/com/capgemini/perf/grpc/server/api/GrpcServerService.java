@@ -2,7 +2,7 @@ package com.capgemini.perf.grpc.server.api;
 
 import com.capgemini.perf.grpc.server.data.Customer;
 import com.capgemini.perf.grpc.server.service.CustomerService;
-import com.capgemini.perf.lib.proto.*;
+import com.capgemini.perf.shared.proto.*;
 import lombok.RequiredArgsConstructor;
 import org.lognet.springboot.grpc.GRpcService;
 
@@ -21,7 +21,7 @@ public class GrpcServerService extends CustomerServiceGrpc.CustomerServiceImplBa
         final Iterable<Customer> customers = customerService.all();
         final CustomersResponse.Builder builder = CustomersResponse.newBuilder();
         StreamSupport.stream(customers.spliterator(), false).map(customerMapper::toDTO).forEach(builder::addCustomers);
-        responseObserver.onNext( builder.build());
+        responseObserver.onNext(builder.build());
         responseObserver.onCompleted();
     }
 
@@ -29,9 +29,8 @@ public class GrpcServerService extends CustomerServiceGrpc.CustomerServiceImplBa
     public void find(CustomerRequest request, io.grpc.stub.StreamObserver<CustomerResponse> responseObserver) {
         final Optional<Customer> customer = customerService.find(request.getId());
         final CustomerResponse.Builder builder = CustomerResponse.newBuilder();
-        customer.ifPresent(value -> builder.setUserId(value.getUserId())
-                .setFirstName(value.getFirstName())
-                .setLastName(value.getLastName()));
+        customer.ifPresent(value -> builder.setId(value.getId().toString()).setUserId(value.getUserId())
+                .setFirstName(value.getFirstName()).setLastName(value.getLastName()));
         responseObserver.onNext(builder.build());
         responseObserver.onCompleted();
     }

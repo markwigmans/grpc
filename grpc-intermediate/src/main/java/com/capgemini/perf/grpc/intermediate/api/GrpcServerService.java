@@ -1,8 +1,8 @@
 package com.capgemini.perf.grpc.intermediate.api;
 
 import com.capgemini.perf.grpc.intermediate.service.CustomerService;
-import com.capgemini.perf.lib.data.CustomerDTO;
-import com.capgemini.perf.lib.proto.*;
+import com.capgemini.perf.shared.data.CustomerDTO;
+import com.capgemini.perf.shared.proto.*;
 import lombok.RequiredArgsConstructor;
 import org.lognet.springboot.grpc.GRpcService;
 
@@ -21,7 +21,7 @@ public class GrpcServerService extends CustomerServiceGrpc.CustomerServiceImplBa
         final Iterable<CustomerDTO> customers = customerService.all();
         final CustomersResponse.Builder builder = CustomersResponse.newBuilder();
         StreamSupport.stream(customers.spliterator(), false).map(mapper::fromDTO).forEach(builder::addCustomers);
-        responseObserver.onNext( builder.build());
+        responseObserver.onNext(builder.build());
         responseObserver.onCompleted();
     }
 

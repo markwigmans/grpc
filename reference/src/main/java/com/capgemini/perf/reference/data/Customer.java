@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.UUID;
 
 @Entity
 @Data
@@ -16,7 +17,7 @@ public class Customer {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private UUID id;
     private int userId;
     private String firstName;
     private String lastName;

@@ -1,7 +1,7 @@
 package com.capgemini.perf.grpc.client.api;
 
-import com.capgemini.perf.lib.data.CustomerDTO;
-import com.capgemini.perf.lib.proto.CustomerResponse;
+import com.capgemini.perf.shared.data.CustomerDTO;
+import com.capgemini.perf.shared.proto.CustomerResponse;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

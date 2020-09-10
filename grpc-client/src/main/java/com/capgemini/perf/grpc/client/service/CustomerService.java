@@ -1,6 +1,6 @@
 package com.capgemini.perf.grpc.client.service;
 
-import com.capgemini.perf.lib.data.CustomerDTO;
+import com.capgemini.perf.shared.data.CustomerDTO;
 
 import java.util.Optional;
 

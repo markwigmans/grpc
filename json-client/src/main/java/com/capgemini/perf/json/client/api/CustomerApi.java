@@ -1,7 +1,7 @@
 package com.capgemini.perf.json.client.api;
 
 import com.capgemini.perf.json.client.service.CustomerService;
-import com.capgemini.perf.lib.data.CustomerDTO;
+import com.capgemini.perf.shared.data.CustomerDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -27,9 +27,9 @@ public class CustomerApi {
     }
 
     @GetMapping("/{userId}")
-    public ResponseEntity<CustomerDTO> find(@PathVariable("userId") int userId) {
+    public ResponseEntity<CustomerDTO> find(@PathVariable int userId) {
         log.info("find({})", userId);
         final Optional<CustomerDTO> customer = customerService.find(userId);
-        return customer.map(value -> ResponseEntity.ok(value)).orElseGet(() -> ResponseEntity.badRequest().build());
+        return customer.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.badRequest().build());
     }
 }

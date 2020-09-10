@@ -1,7 +1,7 @@
 package com.capgemini.perf.json.server.api;
 
-import com.capgemini.perf.lib.data.CustomerDTO;
-import com.capgemini.perf.lib.util.DataSetGenerator;
+import com.capgemini.perf.shared.data.CustomerDTO;
+import com.capgemini.perf.shared.util.DataSetGenerator;
 import com.jayway.jsonpath.JsonPath;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -9,7 +9,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>lib</artifactId>
+    <artifactId>shared</artifactId>
 
     <properties>
         <os-maven-plugin.version>1.6.2</os-maven-plugin.version>
@@ -70,7 +70,8 @@
                 <configuration>
                     <protocArtifact>com.google.protobuf:protoc:3.12.4:exe:${os.detected.classifier}</protocArtifact>
                     <pluginId>grpc-java</pluginId>
-                    <pluginArtifact>io.grpc:protoc-gen-grpc-java:${grpc.version}:exe:${os.detected.classifier}</pluginArtifact>
+                    <pluginArtifact>io.grpc:protoc-gen-grpc-java:${grpc.version}:exe:${os.detected.classifier}
+                    </pluginArtifact>
                 </configuration>
                 <executions>
                     <execution>

@@ -1,6 +1,6 @@
 package com.capgemini.perf.json.client.service;
 
-import com.capgemini.perf.lib.data.CustomerDTO;
+import com.capgemini.perf.shared.data.CustomerDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -8,6 +8,7 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.PostConstruct;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -31,7 +32,11 @@ public class CustomerServiceRest implements CustomerService {
     @Override
     public Iterable<CustomerDTO> all() {
         final CustomerDTO[] result = restTemplate.getForObject(url + "/customer/all", CustomerDTO[].class);
-        return Arrays.stream(result).collect(Collectors.toList());
+        if (result != null) {
+            return Arrays.stream(result).collect(Collectors.toList());
+        } else {
+            return Collections.emptyList();
+        }
     }
 
     @Override

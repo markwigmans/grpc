@@ -1,6 +1,6 @@
 package com.capgemini.perf.reference.api;
 
-import com.capgemini.perf.lib.data.CustomerDTO;
+import com.capgemini.perf.shared.data.CustomerDTO;
 import com.capgemini.perf.reference.data.Customer;
 import com.capgemini.perf.reference.service.CustomerService;
 import lombok.RequiredArgsConstructor;
@@ -35,7 +35,7 @@ public class CustomerApi {
     }
 
     @GetMapping("/{userId}")
-    public ResponseEntity<CustomerDTO> find(@PathVariable("userId") int userId) {
+    public ResponseEntity<CustomerDTO> find(@PathVariable int userId) {
         log.info("find({})", userId);
         final Optional<Customer> customer = customerService.find(userId);
         return customer.map(value -> ResponseEntity.ok(mapper.toDTO(value)))

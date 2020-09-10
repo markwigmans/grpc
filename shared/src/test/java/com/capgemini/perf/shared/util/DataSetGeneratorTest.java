@@ -1,6 +1,6 @@
-package com.capgemini.perf.lib.util;
+package com.capgemini.perf.shared.util;
 
-import com.capgemini.perf.lib.data.CustomerDTO;
+import com.capgemini.perf.shared.data.CustomerDTO;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
