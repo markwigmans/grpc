@@ -101,6 +101,7 @@
         <module>grpc-intermediate</module>
         <module>grpc-client</module>
         <module>reference</module>
+        <module>reference-quarkus</module>
     </modules>
 
     <build>
