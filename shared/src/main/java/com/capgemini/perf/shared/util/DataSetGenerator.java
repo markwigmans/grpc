@@ -7,6 +7,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.IntStream;
 
+/**
+ * Generate test data.
+ */
 public class DataSetGenerator {
 
     public static final int DEFAULT_RECORDS = 100;

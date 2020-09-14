@@ -29,8 +29,10 @@ public class GrpcServerService extends CustomerServiceGrpc.CustomerServiceImplBa
     public void find(CustomerRequest request, io.grpc.stub.StreamObserver<CustomerResponse> responseObserver) {
         final Optional<Customer> customer = customerService.find(request.getId());
         final CustomerResponse.Builder builder = CustomerResponse.newBuilder();
-        customer.ifPresent(value -> builder.setId(value.getId().toString()).setUserId(value.getUserId())
-                .setFirstName(value.getFirstName()).setLastName(value.getLastName()));
+        customer.ifPresent(value -> builder.setId(value.getId().toString())
+                .setUserId(value.getUserId())
+                .setFirstName(value.getFirstName())
+                .setLastName(value.getLastName()));
         responseObserver.onNext(builder.build());
         responseObserver.onCompleted();
     }

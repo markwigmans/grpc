@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>shared</artifactId>
+    <description>Shared code between all other components of the grpc project</description>
 
     <properties>
         <os-maven-plugin.version>1.6.2</os-maven-plugin.version>

@@ -1,4 +1,4 @@
-package com.capgemini.perf.reference.quarkus.data;
+package com.capgemini.perf.reference.data;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

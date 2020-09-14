@@ -10,7 +10,7 @@ import javax.enterprise.event.Observes;
 
 @Startup
 @RequiredArgsConstructor
-public class DataConfig{
+public class DataConfig {
 
     private final CustomerRepository repository;
     private final CustomerMapper mapper;

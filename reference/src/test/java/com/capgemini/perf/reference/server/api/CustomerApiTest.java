@@ -1,6 +1,6 @@
-package com.capgemini.perf.reference.quarkus.server.api;
+package com.capgemini.perf.reference.server.api;
 
-import com.capgemini.perf.reference.quarkus.data.Customer;
+import com.capgemini.perf.reference.data.Customer;
 import com.capgemini.perf.shared.data.CustomerDTO;
 import com.capgemini.perf.shared.util.DataSetGenerator;
 import com.jayway.jsonpath.JsonPath;

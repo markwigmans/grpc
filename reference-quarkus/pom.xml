@@ -8,6 +8,8 @@
     <artifactId>reference-quarkus</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
+    <description>Reference implementation without using other services and based on the Quarkus stack</description>
+
     <properties>
         <compiler-plugin.version>3.8.1</compiler-plugin.version>
         <maven.compiler.parameters>true</maven.compiler.parameters>

@@ -11,6 +11,7 @@
     </parent>
 
     <artifactId>reference</artifactId>
+    <description>Reference implementation without using other services based on the Spring Boot stack</description>
 
     <dependencies>
         <dependency>

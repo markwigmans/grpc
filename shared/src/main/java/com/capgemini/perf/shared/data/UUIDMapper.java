@@ -2,6 +2,9 @@ package com.capgemini.perf.shared.data;
 
 import java.util.UUID;
 
+/**
+ * Helper class for MapStruct mapping of UUID datatype
+ */
 public class UUIDMapper {
 
     public String asString(UUID id) {

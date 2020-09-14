@@ -1,6 +1,6 @@
-package com.capgemini.perf.reference.quarkus.api;
+package com.capgemini.perf.reference.api;
 
-import com.capgemini.perf.reference.quarkus.data.Customer;
+import com.capgemini.perf.reference.data.Customer;
 import com.capgemini.perf.shared.data.CustomerDTO;
 import com.capgemini.perf.shared.data.UUIDMapper;
 import org.mapstruct.Mapper;
