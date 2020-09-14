@@ -1,5 +1,5 @@
 # Read Me
-This project is to test what the performance impact is of jusing Json over HTTP or GRPC. There are 3 versions created:
+This project is to test what the performance impact is of using Json over HTTP or GRPC. There are 3 versions created:
 
 - json client/server;
 - grpc client/server;
