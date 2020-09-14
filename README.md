@@ -49,6 +49,14 @@ Perform the following steps:
 1. goto jmeter directory and run:
 ``<path to jmeter>\jmeter.bat -n -p user.properties -t customer.jmx -l testresults.jtl -e -o report -f``
 
+### configuration
+The file 'user.properties' describes jmeter test configuration parameters.
+
+| Parameter | Description | Default value |
+| --------- | ----------- | ------------- |
+| duration  | Duration in seconds of test for a particular version (jsn,grpc, refence) | 30
+| users     | number of parallel users | 10
+
 ## Work in Progress
 An first attempt to create native applications with using [Spring GraalVM Native](https://github.com/spring-projects-experimental/spring-graalvm-native) 
 is still in progress.  
