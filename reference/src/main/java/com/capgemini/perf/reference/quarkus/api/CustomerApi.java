@@ -1,7 +1,7 @@
-package com.capgemini.perf.reference.api;
+package com.capgemini.perf.reference.quarkus.api;
 
-import com.capgemini.perf.reference.data.Customer;
-import com.capgemini.perf.reference.service.CustomerService;
+import com.capgemini.perf.reference.quarkus.data.Customer;
+import com.capgemini.perf.reference.quarkus.service.CustomerService;
 import com.capgemini.perf.shared.data.CustomerDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

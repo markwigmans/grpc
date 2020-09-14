@@ -1,4 +1,4 @@
-package com.capgemini.perf.reference;
+package com.capgemini.perf.reference.quarkus;
 
 import io.quarkus.runtime.Quarkus;
 import io.quarkus.runtime.annotations.QuarkusMain;

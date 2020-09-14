@@ -1,7 +1,7 @@
-package com.capgemini.perf.reference.service;
+package com.capgemini.perf.reference.quarkus.service;
 
-import com.capgemini.perf.reference.data.Customer;
-import com.capgemini.perf.reference.data.CustomerRepository;
+import com.capgemini.perf.reference.quarkus.data.Customer;
+import com.capgemini.perf.reference.quarkus.data.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

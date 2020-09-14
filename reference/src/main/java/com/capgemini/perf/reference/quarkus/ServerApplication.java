@@ -1,4 +1,4 @@
-package com.capgemini.perf.reference;
+package com.capgemini.perf.reference.quarkus;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

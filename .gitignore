@@ -11,4 +11,4 @@ json-server/target/
 lib/target/
 reference/target/
 target/
-/jmeter/testresults.jtl
+jmeter/testresults.jtl

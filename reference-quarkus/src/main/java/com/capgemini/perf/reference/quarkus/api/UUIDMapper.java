@@ -1,4 +1,4 @@
-package com.capgemini.perf.reference.api;
+package com.capgemini.perf.reference.quarkus.api;
 
 import org.springframework.stereotype.Component;
 

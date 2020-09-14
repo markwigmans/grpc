@@ -1,6 +1,6 @@
-package com.capgemini.perf.reference.data;
+package com.capgemini.perf.reference.quarkus.data;
 
-import com.capgemini.perf.reference.api.CustomerMapper;
+import com.capgemini.perf.reference.quarkus.api.CustomerMapper;
 import com.capgemini.perf.shared.util.DataSetGenerator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.context.event.ApplicationReadyEvent;

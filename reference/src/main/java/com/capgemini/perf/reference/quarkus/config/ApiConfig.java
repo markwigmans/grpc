@@ -1,4 +1,4 @@
-package com.capgemini.perf.reference.config;
+package com.capgemini.perf.reference.quarkus.config;
 
 import com.capgemini.perf.shared.data.UUIDMapper;
 import org.springframework.context.annotation.Bean;

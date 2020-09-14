@@ -1,4 +1,4 @@
-package com.capgemini.perf.reference.data;
+package com.capgemini.perf.reference.quarkus.data;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
