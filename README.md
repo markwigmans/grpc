@@ -15,6 +15,10 @@ a [Spring Boot](https://spring.io/projects/spring-boot) version and a [Quarkus](
 The goals is to have a simple REST/Database application with as little source code as possible, 
 and with a minimal amount of functionality to be useable as test case.
 
+## Requirements
+To build the application, Java 11 (for example [OpenJDK](https://openjdk.java.net/projects/jdk/11/)) and apache [maven](https://maven.apache.org/) are required.
+For the docker version, a [Docker](https://www.docker.com/) environment is required as well.
+
 ## build
 The applications can be build in a runable jar version and a docker version.
 
