@@ -5,6 +5,7 @@ import java.util.UUID;
 /**
  * Helper class for MapStruct mapping of UUID datatype
  */
+// TODO make this as bean visible to all applications.
 public class UUIDMapper {
 
     public String asString(UUID id) {

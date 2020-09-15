@@ -3,7 +3,7 @@ package com.capgemini.perf.shared.util;
 import com.capgemini.perf.shared.data.CustomerDTO;
 import org.apache.commons.lang3.RandomStringUtils;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
@@ -19,8 +19,8 @@ public class DataSetGenerator {
     }
 
     public static List<CustomerDTO> dataSet(String firstName, int count) {
-        final List<CustomerDTO> result = new LinkedList<>();
-        // first records are fixed, rest is random
+        final List<CustomerDTO> result = new ArrayList<>(count);
+        // first 5 records are fixed, rest is random
         result.add(new CustomerDTO(null, 1, firstName, "Bauer"));
         result.add(new CustomerDTO(null, 2, firstName, "O'Brian"));
         result.add(new CustomerDTO(null, 3, firstName, "Johnson"));

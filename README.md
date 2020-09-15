@@ -1,12 +1,13 @@
 # Read Me
-This project is to test what the performance impact is of using json over HTTP and if Grpc is a better alternative for this. There are 3 versions created:
+This project is to test what the performance impact is of using [JSON](https://en.wikipedia.org/wiki/JSON) over HTTP 
+and if [gRPC](https://grpc.io/) is a better alternative for this. There are 3 versions created:
 
 - json client/server;
 - grpc client/intermediate/server;
 - reference.
 
-The idea is to send a GET request to the client, which redirect this request to zero or more intermediate nodes and then to the server. 
-The communication between the client/server is either json or grpc. 
+The idea is to send a GET request to the client, which redirect this request to zero or more intermediate nodes and 
+then to the server. The communication between the client/server is either json or grpc. 
 
 To compare it with an all-in-memory approach, a reference project is created in two versions, 
 a [Spring Boot](https://spring.io/projects/spring-boot) version and a [Quarkus](https://quarkus.io/) version.
@@ -20,7 +21,7 @@ To build the application, Java 11 (for example [OpenJDK](https://openjdk.java.ne
 For the docker version, a [Docker](https://www.docker.com/) environment is required as well.
 
 ## build
-The applications can be build in a runable jar version and a docker version.
+The applications can be build in a runable jar version or a docker version.
 
 The runable jar versions are build via:
 
@@ -41,7 +42,7 @@ A version with runable jars is available as well, file ``runall.bat``. The numbe
 chosen to be 5.
 
 ## Load Test
-A jmeter script is available to check the performance
+A jmeter script is available to check the relative performance of the different solutions.
 
 Perform the following steps:
 
@@ -62,5 +63,5 @@ The file 'user.properties' describes jmeter test configuration parameters.
 | users     | number of parallel users | 10
 
 ## Work in Progress
-An first attempt to create native applications with using [Spring GraalVM Native](https://github.com/spring-projects-experimental/spring-graalvm-native) 
+A first attempt to create native applications with using [Spring GraalVM Native](https://github.com/spring-projects-experimental/spring-graalvm-native) 
 is still in progress.  
