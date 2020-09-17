@@ -17,7 +17,6 @@ public class DataConfig implements ApplicationListener<ApplicationReadyEvent> {
 
     @Override
     public void onApplicationEvent(@NonNull ApplicationReadyEvent applicationReadyEvent) {
-        DataSetGenerator.dataSet("Ref").stream()
-                .map(mapper::fromDTO).forEach(repository::save);
+        DataSetGenerator.dataSet("Ref").stream().map(mapper::fromDTO).forEach(repository::save);
     }
 }

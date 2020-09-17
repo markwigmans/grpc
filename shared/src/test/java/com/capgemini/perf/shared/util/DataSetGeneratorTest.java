@@ -15,7 +15,7 @@ class DataSetGeneratorTest {
         String firstName = "First";
         List<CustomerDTO> dataSet = DataSetGenerator.dataSet(firstName);
         assertThat(dataSet.size(), is(DataSetGenerator.DEFAULT_RECORDS));
-        dataSet.stream().forEach(i -> assertThat(i.getFirstName(), is(firstName)));
+        dataSet.forEach(i -> assertThat(i.getFirstName(), is(firstName)));
     }
 
     @Test
@@ -24,6 +24,6 @@ class DataSetGeneratorTest {
         int size = 20;
         List<CustomerDTO> dataSet = DataSetGenerator.dataSet(firstName, size);
         assertThat(dataSet.size(), is(size));
-        dataSet.stream().forEach(i -> assertThat(i.getFirstName(), is(firstName)));
+        dataSet.forEach(i -> assertThat(i.getFirstName(), is(firstName)));
     }
 }

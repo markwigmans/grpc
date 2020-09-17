@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -26,7 +25,7 @@ public class CustomerApi {
     private final CustomerMapper mapper;
 
     @GetMapping("/all")
-    public List<CustomerDTO> all() {
+    public Iterable<CustomerDTO> all() {
         log.info("all()");
         final Iterable<Customer> customers = customerService.all();
         return StreamSupport.stream(customers.spliterator(), false)
