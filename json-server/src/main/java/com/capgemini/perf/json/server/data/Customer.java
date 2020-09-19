@@ -19,6 +19,6 @@ public class Customer {
     @GeneratedValue
     private UUID id;
     private int userId;
-    private String firstName;
-    private String lastName;
+    private String ref;
+    private String name;
 }

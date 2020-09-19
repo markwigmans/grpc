@@ -12,18 +12,18 @@ class DataSetGeneratorTest {
 
     @Test
     void dataSet() {
-        String firstName = "First";
-        List<CustomerDTO> dataSet = DataSetGenerator.dataSet(firstName);
+        String ref = "First";
+        List<CustomerDTO> dataSet = DataSetGenerator.dataSet(ref);
         assertThat(dataSet.size(), is(DataSetGenerator.DEFAULT_RECORDS));
-        dataSet.forEach(i -> assertThat(i.getFirstName(), is(firstName)));
+        dataSet.forEach(i -> assertThat(i.getRef(), is(ref)));
     }
 
     @Test
     void dataSetSized() {
-        String firstName = "Second";
+        String ref = "Second";
         int size = 20;
-        List<CustomerDTO> dataSet = DataSetGenerator.dataSet(firstName, size);
+        List<CustomerDTO> dataSet = DataSetGenerator.dataSet(ref, size);
         assertThat(dataSet.size(), is(size));
-        dataSet.forEach(i -> assertThat(i.getFirstName(), is(firstName)));
+        dataSet.forEach(i -> assertThat(i.getRef(), is(ref)));
     }
 }

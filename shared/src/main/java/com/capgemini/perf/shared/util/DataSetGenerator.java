@@ -18,16 +18,16 @@ public class DataSetGenerator {
         return dataSet(firstName, DEFAULT_RECORDS);
     }
 
-    public static List<CustomerDTO> dataSet(String firstName, int count) {
+    public static List<CustomerDTO> dataSet(String ref, int count) {
         final List<CustomerDTO> result = new ArrayList<>(count);
         // first 5 records are fixed, rest is random
-        result.add(new CustomerDTO(null, 1, firstName, "Bauer"));
-        result.add(new CustomerDTO(null, 2, firstName, "O'Brian"));
-        result.add(new CustomerDTO(null, 3, firstName, "Johnson"));
-        result.add(new CustomerDTO(null, 4, firstName, "Palmer"));
-        result.add(new CustomerDTO(null, 5, firstName, "Dessler"));
+        result.add(new CustomerDTO(null, 1, ref, "Bauer"));
+        result.add(new CustomerDTO(null, 2, ref, "O'Brian"));
+        result.add(new CustomerDTO(null, 3, ref, "Johnson"));
+        result.add(new CustomerDTO(null, 4, ref, "Palmer"));
+        result.add(new CustomerDTO(null, 5, ref, "Dessler"));
 
-        IntStream.rangeClosed(6, count).forEach(i -> result.add(new CustomerDTO(null, i, firstName, RandomStringUtils.randomAlphabetic(5, 20))));
+        IntStream.rangeClosed(6, count).forEach(i -> result.add(new CustomerDTO(null, i, ref, RandomStringUtils.randomAlphabetic(5, 20))));
 
         return result;
     }

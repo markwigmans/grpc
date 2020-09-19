@@ -31,8 +31,8 @@ public class GrpcServerService extends CustomerServiceGrpc.CustomerServiceImplBa
         final CustomerResponse.Builder builder = CustomerResponse.newBuilder();
         customer.ifPresent(value -> builder.setId(value.getId().toString())
                 .setUserId(value.getUserId())
-                .setFirstName(value.getFirstName())
-                .setLastName(value.getLastName()));
+                .setRef(value.getRef())
+                .setName(value.getName()));
         responseObserver.onNext(builder.build());
         responseObserver.onCompleted();
     }
