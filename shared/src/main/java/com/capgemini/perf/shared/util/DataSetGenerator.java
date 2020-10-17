@@ -14,8 +14,8 @@ public class DataSetGenerator {
 
     public static final int DEFAULT_RECORDS = 100;
 
-    public static List<CustomerDTO> dataSet(String firstName) {
-        return dataSet(firstName, DEFAULT_RECORDS);
+    public static List<CustomerDTO> dataSet(String ref) {
+        return dataSet(ref, DEFAULT_RECORDS);
     }
 
     public static List<CustomerDTO> dataSet(String ref, int count) {

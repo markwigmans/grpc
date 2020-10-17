@@ -5,7 +5,7 @@ import com.capgemini.perf.shared.data.CustomerDTO;
 import com.capgemini.perf.shared.data.UUIDMapper;
 import org.mapstruct.Mapper;
 
-@Mapper(componentModel = "spring", uses = UUIDMapper.class)
+@Mapper(uses = UUIDMapper.class)
 public interface CustomerMapper {
 
     CustomerDTO toDTO(Customer entity);

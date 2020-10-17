@@ -2,6 +2,7 @@ package com.capgemini.perf.json.server.service;
 
 import com.capgemini.perf.json.server.data.Customer;
 import com.capgemini.perf.json.server.data.CustomerRepository;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -17,7 +18,7 @@ public class CustomerServiceDB implements CustomerService {
 
     @Override
     public Iterable<Customer> all() {
-        return repository.findAll();
+        return repository.findAll(Sort.by("userId").ascending());
     }
 
     @Override

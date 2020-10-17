@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.inject.Inject;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -18,11 +19,16 @@ import java.util.stream.StreamSupport;
 @RestController
 @RequestMapping("/customer")
 @Slf4j
-@RequiredArgsConstructor
 public class CustomerApi {
 
     private final CustomerService customerService;
     private final CustomerMapper mapper;
+
+    @Inject
+    public CustomerApi(CustomerService customerService, CustomerMapper mapper) {
+        this.customerService = customerService;
+        this.mapper = mapper;
+    }
 
     @GetMapping("/all")
     public Iterable<CustomerDTO> all() {

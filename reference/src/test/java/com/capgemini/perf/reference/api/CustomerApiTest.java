@@ -1,4 +1,4 @@
-package com.capgemini.perf.reference.server.api;
+package com.capgemini.perf.reference.api;
 
 import com.capgemini.perf.reference.data.Customer;
 import com.capgemini.perf.shared.data.CustomerDTO;

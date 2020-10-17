@@ -30,13 +30,13 @@ public class CustomerServiceRest implements CustomerService {
 
     @Override
     public Iterable<CustomerDTO> all() {
-        final CustomerDTO[] result = restTemplate.getForObject(url + "/customer/all", CustomerDTO[].class);
+        var result = restTemplate.getForObject(url + "/customer/all", CustomerDTO[].class);
         return Optional.ofNullable(result).map(Arrays::asList).orElseGet(ArrayList::new);
     }
 
     @Override
     public Optional<CustomerDTO> find(int id) {
-        final CustomerDTO result = restTemplate.getForObject(url + "/customer/" + id, CustomerDTO.class);
+        var result = restTemplate.getForObject(url + "/customer/" + id, CustomerDTO.class);
         return Optional.ofNullable(result);
     }
 }

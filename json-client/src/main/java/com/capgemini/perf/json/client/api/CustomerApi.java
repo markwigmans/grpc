@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Optional;
-
 @RestController
 @RequestMapping("/customer")
 @Slf4j
@@ -29,7 +27,7 @@ public class CustomerApi {
     @GetMapping("/{userId}")
     public ResponseEntity<CustomerDTO> find(@PathVariable int userId) {
         log.info("find({})", userId);
-        final Optional<CustomerDTO> customer = customerService.find(userId);
+        var customer = customerService.find(userId);
         return customer.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.badRequest().build());
     }
 }
