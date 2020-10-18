@@ -2,12 +2,12 @@ package com.capgemini.perf.reference.quarkus.api;
 
 import com.capgemini.perf.shared.data.UUIDMapper;
 
-import javax.enterprise.inject.Produces;
+import javax.enterprise.context.ApplicationScoped;
 
-public class UUIDMapperFactory {
+class UUIDMapperFactory {
 
-    @Produces
-    public UUIDMapper getUUIDMapper() {
+    @ApplicationScoped
+    UUIDMapper getUUIDMapper() {
         return new UUIDMapper();
     }
 }

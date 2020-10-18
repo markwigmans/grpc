@@ -15,7 +15,7 @@ public class DataConfig {
     private final CustomerMapper mapper;
 
     @Inject
-    public DataConfig(CustomerRepository repository, CustomerMapper mapper) {
+    DataConfig(CustomerRepository repository, CustomerMapper mapper) {
         this.repository = repository;
         this.mapper = mapper;
     }

@@ -3,7 +3,6 @@ package com.capgemini.perf.reference.quarkus.api;
 import com.capgemini.perf.reference.quarkus.data.Customer;
 import com.capgemini.perf.reference.quarkus.service.CustomerService;
 import com.capgemini.perf.shared.data.CustomerDTO;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +24,7 @@ public class CustomerApi {
     private final CustomerMapper mapper;
 
     @Inject
-    public CustomerApi(CustomerService customerService, CustomerMapper mapper) {
+    CustomerApi(CustomerService customerService, CustomerMapper mapper) {
         this.customerService = customerService;
         this.mapper = mapper;
     }

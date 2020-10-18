@@ -5,13 +5,20 @@ import com.capgemini.perf.reference.quarkus.data.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
+import javax.inject.Singleton;
 import java.util.Optional;
 
-@Service
-@RequiredArgsConstructor
+@Singleton
 public class CustomerServiceDB implements CustomerService {
 
     private final CustomerRepository repository;
+
+    @Inject
+    CustomerServiceDB(CustomerRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     public Iterable<Customer> all() {
