@@ -39,7 +39,7 @@ class CustomerApiTest {
         String response = restTemplate.getForEntity(baseUrl + "all", String.class).getBody();
         var customers = Arrays.asList(MAPPER.readValue(response, CustomerDTO[].class));
         assertThat("check size", customers.size(), is(DataSetGenerator.DEFAULT_RECORDS));
-        assertThat("check all userId's are unique", customers.stream().map(CustomerDTO::getUserId).distinct().count(), CoreMatchers.is((long) customers.size()));
+        assertThat("check if all userId's are unique", customers.stream().map(CustomerDTO::getUserId).distinct().count(), CoreMatchers.is((long) customers.size()));
     }
 
     @Test
