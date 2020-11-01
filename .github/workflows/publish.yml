@@ -11,6 +11,8 @@ jobs:
   build:
     name: Test - Unit & Integration
     runs-on: ubuntu-latest
+    env:
+      REPO: ${{ secrets.DOCKER_REPO }}
 
     steps:
       - uses: actions/checkout@v2
