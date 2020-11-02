@@ -36,7 +36,9 @@ The maven environment is already prepared to have Spring boot docker images, ext
 ## Run
 A docker compose file is created for the spring boot docker images. Run it via:
 
-``docker-compose -f docker-compose-sb.yml up``
+``
+docker-compose --env-file env.dev -f docker-compose-sb.yml up
+``
 
 A version with runable jars is available as well, file ``runall.bat``. The number of intermediate components is arbitrary
 chosen to be 5.

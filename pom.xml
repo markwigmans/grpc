@@ -23,6 +23,11 @@
         <grpc.version>1.31.0</grpc.version>
         <protobuf-maven-plugin.version>0.6.1</protobuf-maven-plugin.version>
 
+        <!-- sonar -->
+        <sonar.projectKey>markwigmans_grpc</sonar.projectKey>
+        <sonar.organization>markwigmans-github</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+
         <docker.repo>demo</docker.repo>
     </properties>
 
