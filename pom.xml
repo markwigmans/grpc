@@ -14,7 +14,7 @@
     <artifactId>parent</artifactId>
     <version>${revision}</version>
     <packaging>pom</packaging>
-    <name>Perf Test</name>
+    <name>gRPC vs JSON Performance Test</name>
 
     <properties>
         <revision>0.0.1-SNAPSHOT</revision>
