@@ -1,6 +1,7 @@
 package com.capgemini.perf.shared.util;
 
 import com.capgemini.perf.shared.data.CustomerDTO;
+import lombok.experimental.UtilityClass;
 import org.apache.commons.lang3.RandomStringUtils;
 
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ import java.util.stream.IntStream;
 /**
  * Generate test data.
  */
+@UtilityClass
 public class DataSetGenerator {
 
     public static final int DEFAULT_RECORDS = 100;
