@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class CustomerApi {
 
-    final private CustomerService customerService;
+    private final CustomerService customerService;
 
     @GetMapping("/all")
     public Iterable<CustomerDTO> all() {

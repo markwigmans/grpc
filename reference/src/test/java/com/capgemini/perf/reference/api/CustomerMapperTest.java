@@ -16,7 +16,7 @@ class CustomerMapperTest {
     CustomerMapper mapper;
 
     @Test
-    public void toDTO() {
+    void toDTO() {
         int userId = 23;
         var customer = new Customer(null, userId, "ref", "Name");
         var customerDto = mapper.toDTO(customer);
@@ -24,7 +24,7 @@ class CustomerMapperTest {
     }
 
     @Test
-    public void fromDTO() {
+    void fromDTO() {
         int userId = 23;
         var customerDto = new CustomerDTO(null, userId, "ref", "Name");
         var customer = mapper.fromDTO(customerDto);

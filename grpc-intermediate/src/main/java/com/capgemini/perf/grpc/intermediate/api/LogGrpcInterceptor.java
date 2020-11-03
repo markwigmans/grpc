@@ -13,8 +13,8 @@ public class LogGrpcInterceptor implements ServerInterceptor {
 
 
     @Override
-    public <ReqT, RespT> ServerCall.Listener<ReqT> interceptCall(ServerCall<ReqT, RespT> call, Metadata headers,
-                                                                 ServerCallHandler<ReqT, RespT> serverCallHandler) {
+    public <Q, S> ServerCall.Listener<Q> interceptCall(ServerCall<Q, S> call, Metadata headers,
+                                                       ServerCallHandler<Q, S> serverCallHandler) {
         log.info(call.getMethodDescriptor().getFullMethodName());
         return serverCallHandler.startCall(call, headers);
     }

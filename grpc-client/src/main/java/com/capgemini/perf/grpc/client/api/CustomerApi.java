@@ -18,7 +18,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class CustomerApi {
 
-    final private CustomerService customerService;
+    private final CustomerService customerService;
 
     @GetMapping("/all")
     public Iterable<CustomerDTO> all() {

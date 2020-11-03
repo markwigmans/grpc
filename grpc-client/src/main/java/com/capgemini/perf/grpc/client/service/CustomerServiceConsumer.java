@@ -5,7 +5,6 @@ import com.capgemini.perf.shared.data.CustomerDTO;
 import com.capgemini.perf.shared.proto.*;
 import com.capgemini.perf.shared.proto.CustomerServiceGrpc.CustomerServiceBlockingStub;
 import io.grpc.ManagedChannel;
-import io.grpc.ManagedChannelBuilder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
