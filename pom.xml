@@ -28,7 +28,7 @@
         <jacoco.version>0.8.5</jacoco.version>
         <surefire.version>2.22.2</surefire.version>
         <checkstyle.version>3.0.0</checkstyle.version>
-        <code.coverage.exclusions> </code.coverage.exclusions>
+        <code.coverage.exclusions></code.coverage.exclusions>
         <aggregate.report.dir>grpc/target/site/jacoco-aggregate/jacoco.xml</aggregate.report.dir>
 
         <docker.repo>demo</docker.repo>
