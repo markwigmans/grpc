@@ -66,4 +66,5 @@ The file 'user.properties' describes jmeter test configuration parameters.
 | ----------- | ---- |
 | json        | 8080 | 
 | gRPC        | 8180 |
-| Reference   | 8280 |
+| RSocket     | 8280 |
+| Reference   | 8380 |

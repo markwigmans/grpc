@@ -105,6 +105,8 @@
         <module>grpc-server</module>
         <module>grpc-intermediate</module>
         <module>grpc-client</module>
+        <module>rsocket-server</module>
+        <module>rsocket-client</module>
         <module>reference</module>
     </modules>
 

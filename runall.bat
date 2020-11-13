@@ -8,4 +8,9 @@ START "JSON Intermediate-1" /min java -Xmx256m -jar json-client\target\json-clie
 START "JSON Intermediate-2" /min java -Xmx256m -jar json-client\target\json-client.jar --server.port=8082 --json.server.port=8090
 START "JSON Server"         /min java -Xmx256m -jar json-server\target\json-server.jar --server.port=8090
 
-START "Reference"           /min java -Xmx256m -jar reference\target\reference.jar --server.port=8280
+START "RSocket Client"         /min java -Xmx256m -jar rsocket-client\target\rsocket-client.jar --server.port=8280 --rsocket.server.port=7001
+START "RSocket Intermediate-1" /min java -Xmx256m -jar rsocket-client\target\rsocket-client.jar --server.port=8281 --spring.rsocket.server.port=7001 --rsocket.server.port=7002
+START "RSocket Intermediate-2" /min java -Xmx256m -jar rsocket-client\target\rsocket-client.jar --server.port=8282 --spring.rsocket.server.port=7002 --rsocket.server.port=7000
+START "RSocket Server"         /min java -Xmx128m -jar rsocket-server\target\rsocket-server.jar --spring.rsocket.server.port=7000
+
+START "Reference"           /min java -Xmx256m -jar reference\target\reference.jar --server.port=8380
