@@ -35,16 +35,21 @@ jobs:
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Publish Docker image gRPC Client
-        run: docker push $REPO/grpc-grpc-client-sb:latest
+        run: docker push $REPO/grpc-grpc-client:latest
       - name: Publish Docker image gRPC Intermediate
-        run: docker push $REPO/grpc-grpc-intermediate-sb:latest
+        run: docker push $REPO/grpc-grpc-intermediate:latest
       - name: Publish Docker image gRPC Server
-        run: docker push $REPO/grpc-grpc-server-sb:latest
+        run: docker push $REPO/grpc-grpc-server:latest
 
       - name: Publish Docker image JSON Client
-        run: docker push $REPO/grpc-json-client-sb:latest
+        run: docker push $REPO/grpc-json-client:latest
       - name: Publish Docker image JSON Server
-        run: docker push $REPO/grpc-json-server-sb:latest
+        run: docker push $REPO/grpc-json-server:latest
+
+      - name: Publish Docker image RSocket Client
+        run: docker push $REPO/grpc-rsocket-client:latest
+      - name: Publish Docker image RSocket Server
+        run: docker push $REPO/grpc-rsocket-server:latest
 
       - name: Publish Docker image Reference
-        run: docker push $REPO/grpc-reference-sb:latest
+        run: docker push $REPO/grpc-reference:latest
