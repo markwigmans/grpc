@@ -15,15 +15,21 @@ import java.util.Optional;
 @Slf4j
 public class CustomerServiceRSocket implements CustomerService {
 
-    private final RSocketRequester socketRequester;
+    private final Mono<RSocketRequester> socketRequester;
 
     @Override
     public Flux<CustomerDTO> all() {
-        return socketRequester.route("customer.all").retrieveFlux(CustomerDTO.class);
+        return socketRequester
+                .map(r -> r.route("customer.all"))
+                .flatMapMany(r -> r.retrieveFlux(CustomerDTO.class))
+                .doOnNext(r -> log.info("result: {}", r));
     }
 
     @Override
     public Mono<CustomerDTO> find(int id) {
-        return socketRequester.route("customer.id").data(Integer.valueOf(id)).retrieveMono(CustomerDTO.class);
+        return socketRequester
+                .map(r -> r.route("customer.id").data(Integer.valueOf(id)))
+                .flatMap(r -> r.retrieveMono(CustomerDTO.class))
+                .doOnNext(r -> log.info("result"));
     }
 }
