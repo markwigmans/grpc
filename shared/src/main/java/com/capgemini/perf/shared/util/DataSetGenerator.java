@@ -14,7 +14,7 @@ import java.util.stream.IntStream;
 @UtilityClass
 public class DataSetGenerator {
 
-    public static final int DEFAULT_RECORDS = 100;
+    public static final int DEFAULT_RECORDS = 1000;
 
     public static List<CustomerDTO> dataSet(String ref) {
         return dataSet(ref, DEFAULT_RECORDS);

@@ -2,19 +2,19 @@ version: "3.8"
 
 services:
   json-client:
-    image: ${REPO}/grpc-json-client-sb
+    image: ${REPO}/grpc-json-client
     ports:
       - "8080:8080"
     environment:
       - json.server.host=json-server
 
   json-server:
-    image: ${REPO}/grpc-json-server-sb
+    image: ${REPO}/grpc-json-server
     ports:
       - "8090:8090"
 
   grpc-client:
-    image: ${REPO}/grpc-grpc-client-sb
+    image: ${REPO}/grpc-grpc-client
     ports:
       - "8180:8180"
     environment:
@@ -22,7 +22,7 @@ services:
       - grpc.server.port=6564
 
   grpc-intermediate:
-    image: ${REPO}/grpc-grpc-intermediate-sb
+    image: ${REPO}/grpc-grpc-intermediate
     ports:
       - "6564:6564"
     environment:
@@ -30,11 +30,11 @@ services:
       - grpc.port=6564
 
   grpc-server:
-    image: ${REPO}/grpc-grpc-server-sb
+    image: ${REPO}/grpc-grpc-server
     ports:
       - "6565:6565"
 
   reference:
-    image: ${REPO}/grpc-reference-sb
+    image: ${REPO}/grpc-reference
     ports:
       - "8280:8280"
