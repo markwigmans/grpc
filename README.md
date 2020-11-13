@@ -63,6 +63,7 @@ The file 'user.properties' describes jmeter test configuration parameters.
 ### Ports used
 
 | Application | Port |
+| ----------- | ---- |
 | json        | 8080 | 
 | gRPC        | 8180 |
 | Reference   | 8280 |
